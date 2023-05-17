@@ -13,12 +13,12 @@ public class EscuchadorPrincipalLogIn implements ActionListener {
 
 	public void setEscuchadorPrincipalLogIn(VistaPrincipal vista, VistaLogin vistaLogin) {
 		this.v = vista;
-		this.vl = vistaLogin;
+		vl = vistaLogin;
 	}
 
 	// le damos funcionalidad al boton
 	public void actionPerformed(ActionEvent e) {
-		v.hacerInvisible();
+		v.hacerInisible();
 		vl.hacerVisible();
 	}
 }

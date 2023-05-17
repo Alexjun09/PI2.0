@@ -17,7 +17,7 @@ public class EscuchadorPrincipalSignUp implements ActionListener {
 
 	// le damos funcionalidad al boton
 	public void actionPerformed(ActionEvent e) {
-		v.hacerInvisible();
+		v.hacerInisible();
 		vs.hacerVisible();
 	}
 }

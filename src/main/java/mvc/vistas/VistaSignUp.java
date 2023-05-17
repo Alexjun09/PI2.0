@@ -12,7 +12,6 @@ public class VistaSignUp extends JFrame {
 	private JPasswordField txtPass;
 	private JPasswordField txtRepetirPass;
 	private JLabel alert;
-	private JButton botonSignup;
 	VistaLogin login;
 
 	public VistaSignUp() {
@@ -54,10 +53,10 @@ public class VistaSignUp extends JFrame {
 		txtPass.setBounds(619, 292, 130, 26);
 		getContentPane().add(txtPass);
 
-		botonSignup = new JButton("Sign Up");
+		JButton botonSignup = new JButton("Sign Up");
 		botonSignup.setBounds(632, 357, 117, 29);
 		getContentPane().add(botonSignup);
-		
+
 		JLabel labelRepetirPass = new JLabel("Repetir Contraseña");
 		labelRepetirPass.setBounds(488, 325, 130, 16);
 		getContentPane().add(labelRepetirPass);
@@ -70,7 +69,9 @@ public class VistaSignUp extends JFrame {
 		alert.setBounds(446, 397, 413, 16);
 		getContentPane().add(alert);
 
-		
+		EscuchadorSignUp escuchador = new EscuchadorSignUp();
+		escuchador.setVistaPrincipal(this, login);
+		botonSignup.addActionListener(escuchador);
 
 	}
 
@@ -83,13 +84,6 @@ public class VistaSignUp extends JFrame {
 	}
 	public void setVistaLogin(VistaLogin x) {
 		login=x;
-		setControlador(x);
-	}
-	//Metodo que crea un nuevo controlador
-	public void setControlador(VistaLogin x) {
-		EscuchadorSignUp escuchador = new EscuchadorSignUp();
-		escuchador.setVistaPrincipal(this, login);
-		botonSignup.addActionListener(escuchador);
 	}
 	public JLabel getAlert() {
 		return alert;
