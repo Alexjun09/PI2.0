@@ -6,6 +6,8 @@ import javax.swing.*;
 import mvc.control.*;
 
 public class VistaPrincipal extends JFrame {
+	JButton botonLogIn;
+	JButton botonSignUp;
 	VistaLogin login;
 	VistaSignUp sign;
 	public VistaPrincipal() {
@@ -31,22 +33,37 @@ public class VistaPrincipal extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Bienvenido");
-		lblNewLabel.setBounds(610, 240, 163, 16);
+		lblNewLabel.setBounds(623, 240, 74, 16);
 		getContentPane().add(lblNewLabel);
 
-		JButton botonLogIn = new JButton("Log In");
-		botonLogIn.setBounds(482, 349, 117, 29);
-		getContentPane().add(botonLogIn);
-		EscuchadorPrincipalLogIn escuchador = new EscuchadorPrincipalLogIn();
-		escuchador.setEscuchadorPrincipalLogIn(this, login);
+		ImageIcon imgLogIn = new ImageIcon("Imagenes/4.png");
+		Image resizedImage = imgLogIn.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+		botonLogIn = new JButton("");
+		botonLogIn.setBorderPainted(false);
+		botonLogIn.setBounds(455, 365, 169, 73);
+		botonLogIn.setIcon(new ImageIcon(resizedImage));
+		botonLogIn.setContentAreaFilled(false);
+		botonLogIn.setFocusPainted(false);
+		botonLogIn.setOpaque(false);
+		EscuchadorPrincipalLogIn escuchador = new EscuchadorPrincipalLogIn(this);
+		escuchador.actionPerformed(null);
 		botonLogIn.addActionListener(escuchador);
 
-		JButton botonSignUp = new JButton("Sign Up");
-		botonSignUp.setBounds(686, 349, 117, 29);
-		getContentPane().add(botonSignUp);
-		EscuchadorPrincipalSignUp escuchador2 = new EscuchadorPrincipalSignUp();
-		escuchador2.setEscuchadorPrincipalSignUp(this, sign);
+		ImageIcon imgSignUp = new ImageIcon("Imagenes/3.png");
+		Image resizedImage2 = imgSignUp.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+		botonSignUp = new JButton("");
+		botonSignUp.setBorderPainted(false);
+		botonSignUp.setBounds(686, 365, 193, 73);
+		botonSignUp.setIcon(new ImageIcon(resizedImage2));
+		botonSignUp.setContentAreaFilled(false);
+		botonSignUp.setFocusPainted(false);
+		botonSignUp.setOpaque(false);
+		EscuchadorPrincipalSignUp escuchador2 = new EscuchadorPrincipalSignUp(this);
+		escuchador2.actionPerformed(null);
 		botonSignUp.addActionListener(escuchador2);
+
+		panel.add(botonSignUp);
+		panel.add(botonLogIn);
 	}
 	public void setVistaLogin(VistaLogin x) {
 		login=x;
