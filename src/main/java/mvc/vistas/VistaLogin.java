@@ -12,7 +12,7 @@ public class VistaLogin extends JFrame {
 	private JPasswordField txtPass;
 	private JLabel alert;
 	private home home;
-
+	EscuchadorLogIn comprobar;
 	public VistaLogin() {
 		inicializar();
 
@@ -30,7 +30,7 @@ public class VistaLogin extends JFrame {
 				super.paintComponent(g);
 			}
 		};
-
+		
 		setContentPane(panel);
 		setSize(1350, 820);
 		getContentPane().setLayout(null);
@@ -73,8 +73,16 @@ public class VistaLogin extends JFrame {
 		setVisible(false);
 	}
 
+	//Metodo que crea un nuevo controlador
+	public void setControlador(home x) {
+		EscuchadorLogIn escuchador = new EscuchadorLogIn();
+		escuchador.setVistaPrincipal(this, x);
+		btn.addActionListener(escuchador);
+	}
+
 	public void setHome(home x) {
 		home = x;
+		setControlador(x);
 	}
 	public JLabel getAlert() {
 		return alert;
