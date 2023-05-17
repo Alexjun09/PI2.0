@@ -31,6 +31,7 @@ public class altasAreas {
 	private JLabel lblNewLabel_3;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textField_2;
 	private JButton button1_1;
 	
 	public JFrame getFrame() {
@@ -111,6 +112,14 @@ public class altasAreas {
 
 	public void setTextField_1(JTextField textField_1) {
 		this.textField_1 = textField_1;
+	}
+
+	public JTextField getTextField_2() {
+		return textField_2;
+	}
+
+	public void setTextField_2(JTextField textField_2) {
+		this.textField_2 = textField_2;
 	}
 
 	public JButton getButton1_1() {
@@ -200,7 +209,7 @@ public class altasAreas {
 		button1_1.setIcon(new ImageIcon(resizedAnadirImage));
 		button1_1.setContentAreaFilled(false);
 		
-		button1_1.setBounds(1085, 527, 90, 78);
+		button1_1.setBounds(1236, 556, 90, 78);
 
 		frame.setContentPane(panel);
 		panel.setLayout(null);
@@ -221,8 +230,13 @@ public class altasAreas {
 		
 		JLabel lblNExpediente = new JLabel("Descripción:");
 		lblNExpediente.setFont(new Font("SansSerif", Font.PLAIN, 30));
-		lblNExpediente.setBounds(59, 530, 229, 62);
+		lblNExpediente.setBounds(46, 528, 229, 62);
 		panel.add(lblNExpediente);
+		
+		JLabel lblIdAlumno = new JLabel("Nº Ciclo:");
+		lblIdAlumno.setFont(new Font("SansSerif", Font.PLAIN, 30));
+		lblIdAlumno.setBounds(972, 431, 174, 62);
+		panel.add(lblIdAlumno);
 		
 		textField = new JTextField();
 		textField.setBackground(new Color(211, 233, 250));
@@ -233,8 +247,14 @@ public class altasAreas {
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBackground(new Color(211, 233, 250));
-		textField_1.setBounds(278, 519, 727, 108);
+		textField_1.setBounds(270, 539, 727, 108);
 		panel.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBackground(new Color(211, 233, 250));
+		textField_2.setBounds(1111, 445, 261, 39);
+		panel.add(textField_2);
 
 		
 		frame.setVisible(true);
