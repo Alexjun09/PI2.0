@@ -9,7 +9,7 @@ public class VistaPrincipal extends JFrame {
 	JButton botonLogIn;
 	JButton botonSignUp;
 	VistaLogin login;
-
+	VistaSignUp sign;
 	public VistaPrincipal() {
 		inicializar();
 	}
@@ -65,7 +65,12 @@ public class VistaPrincipal extends JFrame {
 		panel.add(botonSignUp);
 		panel.add(botonLogIn);
 	}
-
+	public void setVistaLogin(VistaLogin x) {
+		login=x;
+	}
+	public void setVistaSignUp(VistaSignUp x) {
+		sign=x;
+	}
 	public void hacerVisible() {
 		setVisible(true);
 	}

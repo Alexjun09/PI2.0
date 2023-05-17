@@ -14,6 +14,7 @@ import mvc.control.consultasAltas;
 import mvc.control.consultasAlumnosB;
 import mvc.control.consultasAreasB;
 import mvc.control.consultasHome;
+import mvc.control.consultasPIB;
 
 public class consultas {
 	private JFrame frame;
@@ -107,7 +108,7 @@ public class consultas {
 
 		buttonadd2 = new JButton("");
 		buttonadd2.setBorderPainted(false);
-		buttonadd2.setBounds(426, 256, 90, 78);
+		buttonadd2.setBounds(426, 315, 90, 78);
 		buttonadd2.setIcon(new ImageIcon(resizedAnadir));
 		buttonadd2.setContentAreaFilled(false);
 		buttonadd2.setFocusPainted(false);
@@ -116,7 +117,7 @@ public class consultas {
 
 		buttonadd3 = new JButton("");
 		buttonadd3.setBorderPainted(false);
-		buttonadd3.setBounds(426, 331, 90, 78);
+		buttonadd3.setBounds(426, 452, 90, 78);
 		buttonadd3.setIcon(new ImageIcon(resizedAnadir));
 		buttonadd3.setContentAreaFilled(false);
 		buttonadd3.setFocusPainted(false);
@@ -142,12 +143,12 @@ public class consultas {
 
 		lblNewLabel_2 = new JLabel("Áreas");
 		lblNewLabel_2.setFont(new Font("Academy Engraved LET", Font.PLAIN, 38));
-		lblNewLabel_2.setBounds(526, 256, 179, 89);
+		lblNewLabel_2.setBounds(527, 304, 179, 89);
 		panel.add(lblNewLabel_2);
 
 		lblNewLabel_3 = new JLabel("Proyectos Integradores");
 		lblNewLabel_3.setFont(new Font("Academy Engraved LET", Font.PLAIN, 38));
-		lblNewLabel_3.setBounds(526, 331, 711, 89);
+		lblNewLabel_3.setBounds(526, 441, 859, 89);
 		panel.add(lblNewLabel_3);
 		frame.setVisible(true);
 
@@ -192,35 +193,35 @@ public class consultas {
 	    setControlador(h);
 	}
 	//Metodo que crea un nuevo controlador
-	public void setControlador3(consultaAlumnos x) {
+	public void setControlador3(buscarAlumnos x) {
 		consultasAlumnosB escuchador = new consultasAlumnosB();
 		escuchador.setVentanaUsuario(this, x);
 		buttonadd1.addActionListener(escuchador);
 	}
 	//Metodo que crea un nuevo controlador
-	public void setControlador4(consultaAreas x) {
+	public void setControlador4(buscarArea x) {
 		consultasAreasB escuchador = new consultasAreasB();
 		escuchador.setVentanaUsuario(this, x);
 		buttonadd2.addActionListener(escuchador);
 	}
-//	//Metodo que crea un nuevo controlador
-//	public void setControlador5(consultaPI x) {
-//		consultasPIB escuchador = new consultasPIB();
-//		escuchador.setVentanaUsuario(this, x);
-//		buttonadd1.addActionListener(escuchador);
-//	}
-	
-	public void setConsultaAlumnos(consultaAlumnos x) {
-		//boton que vuelve a home
-	    setControlador3(x);
+	//Metodo que crea un nuevo controlador
+	public void setControlador5(buscarPI x) {
+		consultasPIB escuchador = new consultasPIB();
+		escuchador.setVentanaUsuario(this, x);
+		buttonadd3.addActionListener(escuchador);
 	}
-	public void setConsultaAreas(consultaAreas x) {
+	
+	public void setBuscarAreas(buscarArea x) {
 		//boton que vuelve a home
 	    setControlador4(x);
 	}
-//	public void setConsultaPI(consultaPI x) {
-//		//boton que vuelve a home
-//	    setControlador5(x);
-//	}
+	public void setBuscarAlumnos(buscarAlumnos x) {
+		//boton que vuelve a home
+	    setControlador3(x);
+	}
+	public void setBuscarPI(buscarPI x) {
+		//boton que vuelve a home
+	    setControlador5(x);
+	}
 	
 }
