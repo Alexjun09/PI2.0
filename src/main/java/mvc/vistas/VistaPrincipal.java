@@ -6,9 +6,6 @@ import javax.swing.*;
 import mvc.control.*;
 
 public class VistaPrincipal extends JFrame {
-	
-	private JButton botonLogIn;
-	private JButton botonSignUp;
 	VistaLogin login;
 	VistaSignUp sign;
 	public VistaPrincipal() {
@@ -39,41 +36,31 @@ public class VistaPrincipal extends JFrame {
 		lblNewLabel.setBounds(610, 240, 163, 16);
 		getContentPane().add(lblNewLabel);
 
-		botonLogIn = new JButton("Log In");
+		JButton botonLogIn = new JButton("Log In");
 		botonLogIn.setBounds(482, 349, 117, 29);
 		getContentPane().add(botonLogIn);
-		
+		EscuchadorPrincipalLogIn escuchador = new EscuchadorPrincipalLogIn();
+		escuchador.setEscuchadorPrincipalLogIn(this, login);
+		botonLogIn.addActionListener(escuchador);
 
-		botonSignUp = new JButton("Sign Up");
+		JButton botonSignUp = new JButton("Sign Up");
 		botonSignUp.setBounds(686, 349, 117, 29);
 		getContentPane().add(botonSignUp);
-		
+		EscuchadorPrincipalSignUp escuchador2 = new EscuchadorPrincipalSignUp();
+		escuchador2.setEscuchadorPrincipalSignUp(this, sign);
+		botonSignUp.addActionListener(escuchador2);
 	}
 	public void setVistaLogin(VistaLogin x) {
 		login=x;
-		setControlador1(x);
 	}
 	public void setVistaSignUp(VistaSignUp x) {
 		sign=x;
-		setControlador2(x);
-	}
-	//Metodo que crea un nuevo controlador
-	public void setControlador1(VistaLogin x) {
-		EscuchadorPrincipalLogIn escuchador = new EscuchadorPrincipalLogIn();
-		escuchador.setEscuchadorPrincipalLogIn(this, x);
-		botonLogIn.addActionListener(escuchador);
-	}
-	//Metodo que crea un nuevo controlador
-	public void setControlador2(VistaSignUp x) {
-		EscuchadorPrincipalSignUp escuchador2 = new EscuchadorPrincipalSignUp();
-		escuchador2.setEscuchadorPrincipalSignUp(this, x);
-		botonSignUp.addActionListener(escuchador2);
 	}
 	public void hacerVisible() {
 		setVisible(true);
 	}
 
-	public void hacerInvisible() {
+	public void hacerInisible() {
 		setVisible(false);
 	}
 }

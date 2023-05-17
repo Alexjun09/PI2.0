@@ -6,13 +6,11 @@ import java.awt.Image;
 import javax.swing.*;
 
 import mvc.control.EscuchadorLogIn;
-import mvc.control.EscuchadorSignUp;
 
 public class VistaLogin extends JFrame {
 	private JTextField txtUser;
 	private JPasswordField txtPass;
 	private JLabel alert;
-	private JButton btn;
 	private home home;
 	EscuchadorLogIn comprobar;
 	public VistaLogin() {
@@ -54,15 +52,17 @@ public class VistaLogin extends JFrame {
 		txtPass.setBounds(616, 301, 130, 26);
 		getContentPane().add(txtPass);
 
-		btn = new JButton("Log In");
+		JButton btn = new JButton("Log In");
 		btn.setBounds(629, 339, 117, 29);
 		getContentPane().add(btn);
-		
+
 		alert = new JLabel("");
 		alert.setBounds(486, 379, 337, 16);
 		getContentPane().add(alert);
 
-		
+		EscuchadorLogIn escuchador = new EscuchadorLogIn();
+		escuchador.setVistaPrincipal(this, home);
+		btn.addActionListener(escuchador);
 	}
 
 	public void hacerVisible() {
@@ -72,12 +72,14 @@ public class VistaLogin extends JFrame {
 	public void hacerInisible() {
 		setVisible(false);
 	}
+
 	//Metodo que crea un nuevo controlador
 	public void setControlador(home x) {
 		EscuchadorLogIn escuchador = new EscuchadorLogIn();
 		escuchador.setVistaPrincipal(this, x);
 		btn.addActionListener(escuchador);
 	}
+
 	public void setHome(home x) {
 		home = x;
 		setControlador(x);
